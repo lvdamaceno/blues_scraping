@@ -4,6 +4,16 @@ import pprint
 from bs4 import BeautifulSoup
 from chaves import (CLIENT_ACCESS_TOKEN)
 
+'''
+Necessário criar uma conta no Genius para obtenção das chaves de acesso,
+depois um arquivo na mesma pasta do projetos chamado chaves.py.
+Dentro do arquivo terá a informação:
+
+CLIENT_ACCESS_TOKEN = ''
+
+Informe seu token de acesso dentro das apas.
+'''
+
 defaults = {
     'request': {
         'token': CLIENT_ACCESS_TOKEN,
