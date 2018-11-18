@@ -1,10 +1,13 @@
 import requests
-import json
-import pprint
 from bs4 import BeautifulSoup
 from chaves import (CLIENT_ACCESS_TOKEN)
+import json
 
 '''
+Fonte
+https://github.com/willamesoares/lyrics-crawler
+https://dev.to/willamesoares/how-to-integrate-spotify-and-genius-api-to-easily-crawl-song-lyrics-with-python-4o62
+
 Necessário criar uma conta no Genius para obtenção das chaves de acesso,
 depois um arquivo na mesma pasta do projetos chamado chaves.py.
 Dentro do arquivo terá a informação:
@@ -36,13 +39,3 @@ def scrap_song_url(url):
     [h.extract() for h in html('script')]
     lyrics = html.find('div', class_='lyrics').get_text()
     return lyrics
-
-
-req = request_song_info('The Thrill Is Gone', 'B.B. King')
-
-dados_musica = json.loads(req.text)
-# pprint.pprint(dados_musica['response']['hits'][0]['result']['url'])
-url_musica = dados_musica['response']['hits'][0]['result']['url']
-
-letra_musica = scrap_song_url(url_musica)
-print(letra_musica)
